@@ -1,0 +1,37 @@
+version: '3'
+services:
+  designer:
+    image: liveart/designer
+    depends_on:
+      - mongo
+      - admin_area
+    ports:
+      - 9000:80
+    restart: always
+    networks:
+      - liveartjs-lacp
+  admin_area:
+    image: liveart/admin-area
+    depends_on:
+      - mongo
+    ports:
+      - 3000:3000
+    restart: always
+    env_file:
+      - ./Docker/liveartjs-lacp.env
+    networks:
+      - liveartjs-lacp
+  mongo:
+    image: mongo
+    #volumes:
+    #  - /var/docker-mounts/lajs-mongodb:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: yXptf19N2A86G8OxNpVyN6Lphf92MJWu
+      MONGO_INITDB_DATABASE: admin
+    restart: always
+    networks:
+      - liveartjs-lacp
+networks:
+  liveartjs-lacp:
+    driver: bridge
