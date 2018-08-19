@@ -5,11 +5,13 @@ This file contains instructions on how to run LiveArtJS and Admin Area when serv
 
 ## Package Description
 - _`liveartjs-lacp.d-compose.yml`_
-    - configs for Docker Compose to run the demo (any platform)
+    - Configs for Docker Compose to run the demo (any platform)
 - _`liveartjs-lacp.prod.d-compose.yml`_ 
-    - configs for Docker Compose to use as production server (more details in [Production Configuration](PRODUCTION_USE.md))
+    - Configs for Docker Compose to use as production server (more details in [Production Configuration](PRODUCTION_USE.md))
 - _`Docker/liveartjs-lacp.env`_
-    - Environment Variables - configuration file's syntax consists of key-value pairs    
+    - Environment Variables - configuration file's syntax consists of key-value pairs
+- _`redirect`_
+    - Folder with remap address utility for legacy docker versions
 
 ## Run a Demo
 
@@ -52,12 +54,17 @@ In order to run the containers you'll need docker and docker-compose installed.
     1. For production configuration please refer to [Production Configuration](PRODUCTION_USE.md)
             
 #### Troubleshooting
-1.  `This site can’t be reached` issue:
+1.  __`This site can’t be reached`__ issue:
     * Check if some software (firewall, antivirus) blocks docker and/or used ports
     * [Docker Toolbox](https://docs.docker.com/toolbox/overview/) uses docker machine with it's own ip address.
-      Use command `docker-machine ip` to [get ip](http://img.newtonideas.com/rO3mztwc3iukOJQ1jV2h.png) and access the demos, e.g.:
-        *  [http://192.168.99.100:9000](http://192.168.99.100:9000)
-        *  [http://192.168.99.100:3000](http://192.168.99.100:3000)
+      1. Use command `docker-machine ip` to [get ip address](http://img.newtonideas.com/rO3mztwc3iukOJQ1jV2h.png) and access the demos, e.g.:
+            *  [http://192.168.99.100:9000](http://192.168.99.100:9000)
+            *  [http://192.168.99.100:3000](http://192.168.99.100:3000)
+      2. Setup redirect proxy:
+            1. Install latest [nodejs](https://nodejs.org) LTS
+            2. open _`/redirect`_ folder in command line
+            3. run `npm i`
+            4. run `npm run redirect -- --host 192.168.99.100` with respective ip address
 2. Specified ports are used
     * Refer to [Port configuration](PRODUCTION_USE.md#Port-configuration)
 

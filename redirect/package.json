@@ -1,0 +1,15 @@
+{
+  "name": "redirect",
+  "version": "1.0.0",
+  "description": "An utility to remap ip address",
+  "main": "index.js",
+  "scripts": {
+    "redirect": "node index.node.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "command-line-args": "^5.0.2",
+    "http-proxy": "^1.17.0"
+  }
+}
