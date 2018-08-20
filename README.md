@@ -26,7 +26,7 @@ This file contains instructions on how to run LiveArtJS and Admin Area when serv
 
 ### Prerequisites
 
-In order to run the containers you'll need docker and docker-compose installed.
+In order to run the containers, you'll need docker and docker-compose installed.
 
 ##### Install Docker:
 * [Linux](https://docs.docker.com/install/#server)
@@ -56,8 +56,8 @@ In order to run the containers you'll need docker and docker-compose installed.
             * `admin@example.com`
             * `XXk2Q4BN0n6nu3c2OB9zRckDFjX39HyFZ1WCIFtdSS`
 
-#### Close demos
-1. Press `Ctrl+C` in the command line and wait for all service are stopped
+#### Closing demos
+1. Press `Ctrl+C` in the command line and wait for all services to stop
 2. Close command line window
 
 OR
@@ -70,7 +70,7 @@ OR
     ```
 
 #### Demos Limitations
-1. All data will be loss after [demos are closed](https://docs.docker.com/storage/) (although not constantly)
+1. All data will be lost after [demos are closed](https://docs.docker.com/storage/) (although not constantly)
     1. For production configuration please refer to [Production Configuration](PRODUCTION_USE.md)
 
 ### Embed LiveArt demo
@@ -80,7 +80,7 @@ Read [Customization](CUSTOMIZATION.md) manual.
 ## Troubleshooting
 1.  __`This site can’t be reached`__ issue:
     * Check if some software (firewall, antivirus) blocks docker and/or used ports
-    * [Docker Toolbox](https://docs.docker.com/toolbox/overview/) uses docker machine with it's own ip address.
+    * [Docker Toolbox](https://docs.docker.com/toolbox/overview/) uses docker machine with its own ip address.
       1. Use command `docker-machine ip` to [get ip address](http://img.newtonideas.com/rO3mztwc3iukOJQ1jV2h.png) and access the demos, e.g.:
             *  [http://192.168.99.100:9000](http://192.168.99.100:9000)
             *  [http://192.168.99.100:3000](http://192.168.99.100:3000)
