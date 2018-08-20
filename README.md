@@ -46,7 +46,9 @@ In order to run the containers you'll need docker and docker-compose installed.
     ```shell
     docker-compose -f liveartjs-lacp.d-compose.yml up
     ```
-    _Note: The command might require running with sudo depending on the running system and user._
+    _Note 1: The command might require running with sudo depending on the running system and user._
+
+    _Note 2: The command might require to clean-up current containers and pull last changes - see [Troubleshooting](#Troubleshooting) > "Get the latest images"._
 3. The services will be available at the following default URL's:
    * LiveArt Designer: [http://localhost:9000](http://localhost:9000)
    * Admin area: [http://localhost:3000](http://localhost:3000)
@@ -58,8 +60,17 @@ In order to run the containers you'll need docker and docker-compose installed.
 1. Press `Ctrl+C` in the command line and wait for all service are stopped
 2. Close command line window
 
+OR
+
+1.  Use this commands if you just closed command line window
+    ```sh
+    docker stop liveart_designer
+    docker stop liveart_admin_area
+    docker stop liveart_mongo
+    ```
+
 #### Demos Limitations
-1. All data will be loss after demos area closed
+1. All data will be loss after [demos are closed](https://docs.docker.com/storage/) (although not constantly)
     1. For production configuration please refer to [Production Configuration](PRODUCTION_USE.md)
 
 ### Embed LiveArt demo
@@ -78,6 +89,9 @@ Read [Customization](CUSTOMIZATION.md) manual.
             2. open _`/redirect`_ folder in command line
             3. run `npm i`
             4. run `npm run redirect -- --host 192.168.99.100` with respective ip address
-2. Specified ports are used
+2. Get the latest images from [Docker Hub](https://hub.docker.com/u/liveart/) (if you loaded images before)
+    1. Run `docker pull liveart/admin-area`
+    2. Run `docker pull liveart/designer`
+3. Specified ports are used
     * Refer to [Port configuration](PRODUCTION_USE.md#Port-configuration)
 

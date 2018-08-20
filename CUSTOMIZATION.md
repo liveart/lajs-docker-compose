@@ -1,3 +1,9 @@
+This short guides will help to embed LiveArt to other pages (e.g. e-commerce customize product) and customize Order Process
+
+Contents:
+1. [Integration with e-commerce](#Integration-with-e-commerce)
+2. [Customize Place Order](#Customize-Place-Order)
+
 ## Integration with e-commerce
 
 In this section we'll embed LiveArt designer to HTML page. Prerequisites: running LiveArt docker container.
