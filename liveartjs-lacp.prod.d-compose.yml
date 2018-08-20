@@ -2,6 +2,7 @@ version: '3'
 services:
   designer:
     image: liveart/designer
+    container_name: liveart_designer
     depends_on:
       - mongodb
       - admin_area
@@ -14,6 +15,7 @@ services:
       - liveartjs-lacp
   admin_area:
     image: liveart/admin-area
+    container_name: liveart_admin_area
     volumes:
       - /var/docker-mounts/admin_area:/app/
     depends_on:
@@ -27,6 +29,7 @@ services:
       - liveartjs-lacp
   mongodb:
     image: mongo
+    container_name: liveart_mongo
     volumes:
       - /var/docker-mounts/liveartjs-db:/data/db
     environment:
