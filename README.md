@@ -19,6 +19,8 @@ This file contains instructions on how to run LiveArtJS and Admin Area when serv
     - Environment Variables - configuration file's syntax consists of key-value pairs
 - _`redirect`_
     - Folder with remap address utility for legacy docker versions
+- _`samples`_
+    - Integration samples (HTML, CSS, JS). More info in [Integration](CUSTOMIZATION.md) manual.
 
 ## Run the Demo
 
