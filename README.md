@@ -3,6 +3,13 @@
 
 This file contains instructions on how to run LiveArtJS and Admin Area when served as Docker images.
 
+### Content
+- [Package Description](#Package-Description)
+- [Run the Demo](#Run-the-Demo)
+    - [Prerequisites](#Prerequisites)
+    - [Embed LiveArt demo](#Embed-LiveArt-demo)
+- [Troubleshooting](#Troubleshooting)
+
 ## Package Description
 - _`liveartjs-lacp.d-compose.yml`_
     - Configs for Docker Compose to run the demo (any platform)
@@ -13,7 +20,7 @@ This file contains instructions on how to run LiveArtJS and Admin Area when serv
 - _`redirect`_
     - Folder with remap address utility for legacy docker versions
 
-## Run a Demo
+## Run the Demo
 
 ### Prerequisites
 
@@ -49,11 +56,15 @@ In order to run the containers you'll need docker and docker-compose installed.
 1. Press `Ctrl+C` in the command line and wait for all service are stopped
 2. Close command line window
 
-#### Limitations
+#### Demos Limitations
 1. All data will be loss after demos area closed
     1. For production configuration please refer to [Production Configuration](PRODUCTION_USE.md)
+
+### Embed LiveArt demo
+
+Read [Customization](CUSTOMIZATION.md) manual.
             
-#### Troubleshooting
+## Troubleshooting
 1.  __`This site can’t be reached`__ issue:
     * Check if some software (firewall, antivirus) blocks docker and/or used ports
     * [Docker Toolbox](https://docs.docker.com/toolbox/overview/) uses docker machine with it's own ip address.

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>LiveArt HTML5 iframe</title>
+
+    <!-- Bootstrap front-end framework -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+
+    <!-- Live Art API script-->
+    <script type="text/javascript" src="lib/iframe-loader.js"></script>
+
+    <!-- Live Art API CSS -->
+    <link type="text/css" href="css/iframe-loader.css" rel="stylesheet"/>
+
+    <!-- Live Art API sample -->
+    <script type="text/javascript">
+        window.onload = function () {
+            // Add config to turn off default place order process
+            var config = {
+                handlers: {
+                    placeOrder: null
+                }
+            };
+
+            // LiveArt component url
+            var url = "http://localhost:9000/liveart.html";
+
+            window.liveArtIframeLoader.load("#LiveArtIframe", url, config).then(liveArt => {
+                window.liveArt = liveArt;
+                // Add "Place Order" event handler
+                liveArt.on("onPlaceOrder", onPlaceOrder);
+            });
+
+            /**
+             * Define Custom Place Order Handler: custom actions after order was saved as design
+             *
+             * @param designId design id
+             */
+            function onPlaceOrder(designId) {
+                liveArt.showPreloader("Finishing design...");
+
+                // get ordered design information
+                liveArt.getDesignInformation(designId).then(function (design) {
+                    // generate PNG/PDF 
+                    liveArt.prepareVisuals(designId).then(function (visuals) {
+                        liveArt.hidePreloader();
+                        // open sample Order Preview Modal
+                        showModal(designId, design, visuals);
+                    });
+                });
+
+            }
+
+            /**
+             * Define sample Order Preview Modal function
+             * In the same one may see sample how to get basic design information (product name, price, etc.)
+             * and generated proof visuals.
+             *
+             * Requires <div id="palace-order-modal" />
+             *
+             * @param designId design id
+             * @param design json design description (contains all information about design). For more details please refer to docs for json schema
+             * @param visuals json description for generated PDF/PNG visuals. For more details please refer to docs for json schema
+             */
+            function showModal(designId, design, visuals) {
+                jQuery("#order-modal-label")[0].innerHTML = "Thank you for order #" + designId;
+                jQuery("#product-name")[0].innerHTML = design.product.name;
+                jQuery("#order-item-price")[0].innerHTML = "Item price: " + design.prices[0].price;
+                jQuery("#order-total-price")[0].innerHTML = "Total price: " + design.prices[1].price;
+                var quantities = 0;
+                for (var i = 0; i < design.quantities.length; i++) {
+                    quantities += design.quantities[i].quantity;
+                }
+                jQuery("#order-quantity")[0].innerHTML = "Quantity: " + quantities;
+                var carouselInnerHtml = '';
+                for (var i = 0; i < visuals.previews.length; i++) {
+                    carouselInnerHtml += `<div class="carousel-item ${i === 0 ? ' active' : ''}">
+                    <img class="d-block w-100" src="${visuals.previews[i].url}">
+                    <div class="carousel-caption d-none d-md-block">
+                          <p>${visuals.previews[i].name}</p>
+                     </div>
+                    </div>`;
+                }
+                jQuery(".carousel-inner")[0].innerHTML = carouselInnerHtml;
+                jQuery("#order-pdf-link").attr("href", visuals.pdf);
+                jQuery("#order-zip-link").attr("href", visuals.zip);
+                jQuery("#palace-order-modal").modal("show");
+            }
+        }
+    </script>
+</head>
+<body>
+<h3>LiveArt Container</h3>
+<!-- LiveArt Iframe container (required for API usage); Uses https://getbootstrap.com/docs/4.1/utilities/embed/ -->
+<main id="LiveArtIframe" class="embed-responsive embed-responsive-16by9"></main>
+
+<!-- Order Preview Modal Sample -->
+<div class="modal fade" id="palace-order-modal" tabindex="-1" role="dialog" aria-labelledby="order-modal-label"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="order-modal-label"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h5 id="product-name" class="text-muted"></h5>
+                            <!-- <img id="order-preview" class="img-thumbnail" src=""> -->
+                            <div id="order-preview-carousel" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner"></div>
+                                <a class="carousel-control-prev" href="#order-preview-carousel" role="button"
+                                   data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#order-preview-carousel" role="button"
+                                   data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                            <a id="order-pdf-link" href="" target="_blank">Download PDF</a>
+                            <br>
+                            <a id="order-zip-link" href="" target="_blank">Download ZIP (high-res PNG)</a>
+                        </div>
+                        <div class="col">
+                            <h6 id="order-quantity" style="margin-top: 30px;"></h6>
+                            <h6 id="order-item-price"></h6>
+                            <h6><strong id="order-total-price"></strong></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Sample end -->
+
+<footer>
+    <small>&copy; LiveArt 2018</small>
+</footer>
+
+</body>
+</html>

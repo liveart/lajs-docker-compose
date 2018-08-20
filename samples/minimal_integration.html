@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>LiveArt HTML5 iframe</title>
+
+    <!-- Live Art API script-->
+    <script type="text/javascript" src="lib/iframe-loader.js"></script>
+
+    <!-- Live Art API CSS -->
+    <style>
+        #LiveArtIframe > iframe {
+            width: 910px;
+            height: 640px;
+            border: none;
+        }
+    </style>
+
+    <!-- Live Art API sample -->
+    <script type="text/javascript">
+        window.onload = function () {
+            // Init LiveArt iframe
+            window.liveArtIframeLoader.load("#LiveArtIframe", "http://localhost:9000/liveart.html");
+        }
+    </script>
+</head>
+<body>
+    <!-- LiveArt Iframe container  -->
+    <main id="LiveArtIframe"></main>
+</body>
+</html>
