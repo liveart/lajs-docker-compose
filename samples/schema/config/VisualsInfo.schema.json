@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://raw.githubusercontent.com/liveart/liveartjs-config-schemas/develop/config/VisualsInfo.schema.json",
+  "title": "VisualsInfo",
+  "description": "Info returned on order.php (when not redirected) or by visuals.php",
+  "type": "object",
+  "version": "1.0.0",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Reference to JSON Schema of the supported version"
+    },
+    "visuals": {
+      "type": "object",
+      "properties": {
+        "pdf": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "previews": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["design", "visuals"],
+  "additionalProperties": false
+}

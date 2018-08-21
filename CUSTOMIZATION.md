@@ -104,8 +104,8 @@ Complete file: [samples/place_order_integration.html](samples/place_order_integr
     * use LiveArt API methods
         * `liveArt.showPreloader(label: string)` - show preloader with text
         * `liveArt.hidePreloader()` - hide active preloader
-        * `liveArt.getDesignInformation(designId: string)` - get all design information. See response schema for more details
-        * `liveArt.prepareVisuals(designId: string)` - generate PDF/PNG files. See response schema for more details
+        * `liveArt.getDesignInformation(designId: string)` - get all design information. See [response schema](samples/schema/service/design/DesignDataObject.schema.json) for more details
+        * `liveArt.prepareVisuals(designId: string)` - generate PDF/PNG files. See [response schema](samples/schema/config/VisualsInfo.schema.json) for more details
     ```js
     function onPlaceOrder(designId) {
         liveArt.showPreloader("Finishing design...");
