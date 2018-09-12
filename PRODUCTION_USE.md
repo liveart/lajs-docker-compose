@@ -6,7 +6,7 @@
 ### Run
 
 Run-command:
-```shell
+```sh
 docker-compose -f liveartjs-lacp.prod.d-compose.yml up
 ```
 _Note: The command might require running with sudo depending on the running system and user._
@@ -26,7 +26,10 @@ Default configuration:
 * `/var/docker-mounts/liveartjs-db` for the database
 
 These values should be updating respectively in `liveartjs-lacp.prod.d-compose.yml` to the ones that are available on the host machine.
+
+##### Assets URL mapping
+We strongly advise to configure [Assets URL mapping](CONFIGURATION.md#assets-url-mapping) to your docker host external ip.
  
 ### Optional Configuration
 
-For optional configuration refer to [CONFIGURATION.md](https://github.com/liveart/lajs-docker-compose/blob/master/CONFIGURATION.md).
+For optional configuration refer to [CONFIGURATION.md](CONFIGURATION.md).

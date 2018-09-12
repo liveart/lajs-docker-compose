@@ -4,11 +4,11 @@
 This file contains instructions on how to run LiveArtJS and Admin Area when served as Docker images.
 
 ### Content
-- [Package Description](#Package-Description)
-- [Run the Demo](#Run-the-Demo)
-    - [Prerequisites](#Prerequisites)
-    - [Embed LiveArt demo](#Embed-LiveArt-demo)
-- [Troubleshooting](#Troubleshooting)
+- [Package Description](#package-description)
+- [Run the Demo](#run-the-demo)
+    - [Prerequisites](#prerequisites)
+    - [Embed LiveArt demo](#embed-liveart-demo)
+- [Troubleshooting](#troubleshooting)
 
 ## Package Description
 - _`liveartjs-lacp.d-compose.yml`_
@@ -93,5 +93,5 @@ Read [Customization](CUSTOMIZATION.md) manual.
     1. Run `docker pull liveart/admin-area`
     2. Run `docker pull liveart/designer`
 3. Specified ports are used
-    * Refer to [Port configuration](PRODUCTION_USE.md#Port-configuration)
+    * Refer to [Port configuration](CONFIGURATION.md#port-configuration)
 
