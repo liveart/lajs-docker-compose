@@ -5,6 +5,8 @@ File: [liveartjs-lacp.prod.d-compose.yml](liveartjs-lacp.prod.d-compose.yml)
 
 This configures the ports at which the services will be exposed on the host machine.
 
+Note: This is not actual when running the admin area standalone. Refer to [Standalone Admin Area](LACP_STANDALONE.md) instead.
+
 Ports are getting configured in the "ports" key defined in the docker compose yaml file.
 Signature: `<exposed_port>:<internal_service_port>`.
 
@@ -32,6 +34,20 @@ Value to change:
 ```env
 LACP_PUBLIC_ADDRESS=https://lacp.domain.com/
 ```
+
+#### :small_blue_diamond: MongoDB connection URI
+File: [Docker/liveartjs-lacp.env](/Docker/liveartjs-lacp.env)
+
+This option allows to configure the MongoDB connection URI that will be used by the admin area.
+
+By default, it is configured to use the instance started by [liveartjs-lacp.prod.d-compose.yml](liveartjs-lacp.prod.d-compose.yml).
+
+Value to change:
+```env
+LACP_MONGO_URI=mongodb://user:password@domain.com:27017/db
+```
+
+[Official docs](https://docs.mongodb.com/manual/reference/connection-string/)
 
 #### :small_blue_diamond: Default admin area user
 File: [Docker/liveartjs-lacp.env](/Docker/liveartjs-lacp.env)
