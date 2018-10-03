@@ -13,7 +13,6 @@ _Note: The command might require running with sudo depending on the running syst
 
 ### Required Configuration
 
-The only difference between the production config and the base config is that the production one defines volumes required for data persistence.
 This config might _require additional configuration_ that is described under _Production configuration_ in this Readme (see below).
 
 ##### Setting up bind volumes
@@ -27,9 +26,9 @@ Default configuration:
 
 These values should be updating respectively in `liveartjs-lacp.prod.d-compose.yml` to the ones that are available on the host machine.
 
-##### Assets URL mapping
-We strongly advise to configure [Assets URL mapping](CONFIGURATION.md#assets-url-mapping) to your docker host external ip.
+##### Public address configuration
+It is required to configure the public address of the admin area as described in [Assets URL mapping](CONFIGURATION.md##small_blue_diamond-public-address).
  
-### Optional Configuration
+### App Configuration
 
-For optional configuration refer to [CONFIGURATION.md](CONFIGURATION.md).
+For full information on the application configuration refer to [CONFIGURATION.md](CONFIGURATION.md).
