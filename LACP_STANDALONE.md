@@ -33,6 +33,7 @@ Change `<port_on_host>` to the one on the host. `<port_in_container>` should not
 #### :arrow_forward: Other configuration
 Please see available configuration options for [liveartjs-lacp.prod.env](/Docker/liveartjs-lacp.prod.env) in [CONFIGURATION](CONFIGURATION.md).
 
+:heavy_exclamation_mark: Some options may be critical for the production use (such as [Public address](https://github.com/liveart/lajs-docker-compose/blob/master/CONFIGURATION.md#small_blue_diamond-public-address)), so please consider checking the [CONFIGURATION](CONFIGURATION.md) readme.
 
 ### Docker docs
 [Official docs](https://docs.docker.com/engine/reference/commandline/run/)
