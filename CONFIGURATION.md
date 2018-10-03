@@ -58,7 +58,7 @@ The services are being configured with `Docker/liveartjs-lacp.env` file.
 File: [Docker/liveartjs-lacp.env](/Docker/liveartjs-lacp.env)
 
 :warning: This option is deprecated and will be removed in future releases.
-Please use [Public address](#small_blue_diamond-port-configuration) option instead.
+Please use [Public address](#small_blue_diamond-public-address) option instead.
 
 By default, all the assets served by the admin area are available by absolute url on "http://localhost:3000".
 
