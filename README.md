@@ -8,6 +8,7 @@ This file contains instructions on how to run LiveArtJS and Admin Area when serv
 - [Run the Demo](#run-the-demo)
     - [Prerequisites](#prerequisites)
     - [Embed LiveArt demo](#embed-liveart-demo)
+- [Run Admin area standalone](LACP_STANDALONE.md)    
 - [Troubleshooting](#troubleshooting)
 
 ## Package Description
