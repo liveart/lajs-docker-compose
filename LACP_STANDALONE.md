@@ -1,7 +1,7 @@
 ## Running Admin area as docker container standalone
 
 ```bash
-docker run --name lacp -it -v /c/Users/Public/docker-mounts/admin-area/files:/app/client/public/files --env-file ./Docker/liveartjs-lacp.prod.env -p 3000:3000 --restart always liveart/admin-area
+docker run --name lacp -it -v /c/Users/Public/docker-mounts/admin-area/files:/app/client/public/files --env-file ./Docker/liveartjs-lacp.env -p 3000:3000 --restart always liveart/admin-area
 ```
 
 ### Configurable options
