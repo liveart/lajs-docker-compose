@@ -1,6 +1,6 @@
 ## Docker Compose configuration
 
-##### :small_blue_diamond: Port configuration
+#### :small_blue_diamond: Port configuration
 File: [liveartjs-lacp.prod.d-compose.yml](liveartjs-lacp.prod.d-compose.yml)
 
 This configures the ports at which the services will be exposed on the host machine.
@@ -26,14 +26,14 @@ Then the "ports" key should be updated to the following with respect to the serv
 File: [Docker/liveartjs-lacp.env](/Docker/liveartjs-lacp.env)
 
 This option must be set to the **public** address at which the admin area is available.
-The admin area will use this to 
+The admin area will use this to properly resolve the URLs of the assets for the designer.
 
 Value to change:
 ```env
 LACP_PUBLIC_ADDRESS=https://lacp.domain.com/
 ```
 
-##### Default admin area user
+#### :small_blue_diamond: Default admin area user
 File: [Docker/liveartjs-lacp.env](/Docker/liveartjs-lacp.env)
 
 Values to change:
@@ -42,7 +42,7 @@ LACP_DEFAULT_ADMIN_EMAIL=<email>
 LACP_DEFAULT_ADMIN_PASSWORD=<password>
 ```
 
-##### :small_blue_diamond: Use Https protocol
+#### :small_blue_diamond: Use Https protocol
 File: [Docker/liveartjs-lacp.env](/Docker/liveartjs-lacp.env)
 
 :warning: This option is deprecated and will be removed in future releases.
@@ -54,15 +54,13 @@ The services are being configured with `Docker/liveartjs-lacp.env` file.
 * `LACP_PROTOCOL` - Must represent a protocol that the admin area application is available on. It is recommended to set it to "https"
  if "https" protocol is available to access the application. This option allows the admin area service to properly resolve some URL's.
 
-##### :small_blue_diamond: Assets URL mapping
+#### :small_blue_diamond: Assets URL mapping
 File: [Docker/liveartjs-lacp.env](/Docker/liveartjs-lacp.env)
 
 :warning: This option is deprecated and will be removed in future releases.
-
-Please use [Public address](#public-address) option
+Please use [Public address](#small_blue_diamond-port-configuration) option instead.
 
 By default, all the assets served by the admin area are available by absolute url on "http://localhost:3000".
-This can be changed in the in `Docker/liveartjs-lacp.env` file.
 
 Value to change:
 ```env
@@ -74,8 +72,8 @@ LACP_FILES_URL=http://localhost:3000
 If "LACP_FILES_URL" is omitted from the configuration, all the urls will be served as relative.
 
 
-## Other tips
+### Other tips
 
-##### :small_blue_diamond: Serve docker container without port
+##### Serve docker container without port
 Use reverse-proxy to point custom URL's to these addresses.
 E.g. for Apache Server please refer to [docs](https://httpd.apache.org/docs/2.4/howto/reverse_proxy.html).
