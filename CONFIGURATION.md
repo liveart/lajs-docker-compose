@@ -74,6 +74,8 @@ If "LACP_FILES_URL" is omitted from the configuration, all the urls will be serv
 
 ### Other tips
 
-##### Serve docker container without port
+#### Serve docker container without port
+
 Use reverse-proxy to point custom URL's to these addresses.
+
 E.g. for Apache Server please refer to [docs](https://httpd.apache.org/docs/2.4/howto/reverse_proxy.html).
