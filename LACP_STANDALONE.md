@@ -57,9 +57,9 @@ Please see other available configuration options in [CONFIGURATION](CONFIGURATIO
 #### Windows mount issue
 ` Cannot create container for service ... Mount denied ... "..." is not a valid Windows path`
 
-1. On Command Line: "set COMPOSE_CONVERT_WINDOWS_PATHS=1";
+1. On Command Line: `set COMPOSE_CONVERT_WINDOWS_PATHS=1`;
 2. Restart Docker for Windows;
-3. Go to Docker for Windows settings > Shared Drives > Reset credentials > select drive > Apply;
+3. Go to "Docker for Windows" settings > Shared Drives > Reset credentials > select drive > Apply;
 4. Reopen Command Line;
 5. Kill the Containers;
 6. Rerun the Containers.
