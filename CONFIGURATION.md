@@ -8,6 +8,7 @@ Files:
 This configures the ports at which the services will be exposed on the host machine.
 
 Ports are getting configured in the "ports" key defined in the docker compose yaml file.
+
 Signature: `<exposed_port>:<internal_service_port>`.
 
 >__Note:__ Only _exposed_port_ may be changed, _internal_service_port_ should be left as it is already set!
