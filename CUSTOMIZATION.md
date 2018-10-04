@@ -85,6 +85,7 @@ Complete file: [samples/place_order_integration.html](samples/place_order_integr
     ```js
     // Add config to turn off default place order process
     var config = {
+        base: "http://localhost:3000/api/liveart/configuration",
         handlers: {
             placeOrder: null
         }
