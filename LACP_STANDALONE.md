@@ -41,7 +41,7 @@ Default configurations:
 * `c:/Users/Public/docker-mounts/admin-area/files` for admin area
 * `c:/Users/Public/docker-mounts/php-sample-services/files` for sample PHP services
 
-:heavy_exclamation_mark: make sure both directories exist on host!
+:heavy_exclamation_mark: Make sure both directories exist on host!
 
 ##### Linux
 * `/var/docker-mounts/admin-area/files` for admin area
