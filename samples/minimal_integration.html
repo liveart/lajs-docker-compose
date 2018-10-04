@@ -20,8 +20,16 @@
     <!-- Live Art API sample -->
     <script type="text/javascript">
         window.onload = function () {
+            //Link to the configuration
+            var config = {
+                base: "http://localhost:3000/api/liveart/configuration"
+            };
+            
+            // LiveArt component url
+            var url = "http://localhost:9000/liveart.html";
+            
             // Init LiveArt iframe
-            window.liveArtIframeLoader.load("#LiveArtIframe", "http://localhost:9000/liveart.html");
+            window.liveArtIframeLoader.load("#LiveArtIframe", url, config);
         }
     </script>
 </head>
