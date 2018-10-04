@@ -38,8 +38,8 @@ Change `<host_directory>` to the one on the host. `<container_directory>` should
 Default configurations:
 
 ##### Windows
-* `/var/docker-mounts/admin-area/files` for admin area
-* `/c/Users/Public/docker-mounts/php-sample-services/files` for sample PHP services
+* `c:/Users/Public/docker-mounts/admin-area/files` for admin area
+* `c:/Users/Public/docker-mounts/php-sample-services/files` for sample PHP services
 
 
 ##### Linux
@@ -51,6 +51,20 @@ Default configurations:
 Please see other available configuration options in [CONFIGURATION](CONFIGURATION.md).
 
 :heavy_exclamation_mark: Some options may be critical for the production use (such as [Public address](https://github.com/liveart/lajs-docker-compose/blob/master/CONFIGURATION.md#small_blue_diamond-public-address)), so please consider checking the [CONFIGURATION](CONFIGURATION.md) readme.
+
+### :point_up_2: Troubleshooting
+
+#### Windows mount issue
+` Cannot create container for service ... Mount denied ... "..." is not a valid Windows path`
+
+1. On Command Line: "set COMPOSE_CONVERT_WINDOWS_PATHS=1";
+2. Restart Docker for Windows;
+3. Go to Docker for Windows settings > Shared Drives > Reset credentials > select drive > Apply;
+4. Reopen Command Line;
+5. Kill the Containers;
+6. Rerun the Containers.
+
+[Original GitHub Issue](https://github.com/docker/compose/issues/4303)
 
 ### :link: Docker docs
 [Official docs](https://docs.docker.com/engine/reference/commandline/run/)
