@@ -1,8 +1,19 @@
-## Running Admin area as docker container standalone
+## Running Admin area with sample php services without designer and DB
 
 ```bash
-docker run --name lacp -it -v /c/Users/Public/docker-mounts/admin-area/files:/app/client/public/files --env-file ./Docker/liveartjs-lacp.env -p 3000:3000 --restart always liveart/admin-area
+docker-compose -f lacp.no-mongo.prod.d-compose.yml up
 ```
+
+Includes the ticked services:
+
+:heavy_check_mark: Admin area
+
+:heavy_check_mark: Php sample services
+
+:heavy_multiplication_x: Designer
+
+:heavy_multiplication_x: MongoDB instance
+
 
 ### Configurable options
 
