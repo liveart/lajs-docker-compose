@@ -4,7 +4,7 @@ services:
     image: liveart/php-sample-services
     container_name: liveart_php_sample_services
     volumes:
-      - /c/Users/Public/docker-mounts/php-sample-services/files:/var/www/html/files
+    - /c/Users/Public/docker-mounts/php-sample-services/files:/var/www/html/files
     restart: always
     networks:
     - liveartjs-lacp
