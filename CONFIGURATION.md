@@ -1,18 +1,18 @@
 ## Docker Compose configuration
 
 #### :small_blue_diamond: Port configuration
-File: [liveartjs-lacp.prod.d-compose.yml](liveartjs-lacp.prod.d-compose.yml)
+Files:
+- [liveartjs-lacp.prod.d-compose.yml](liveartjs-lacp.prod.d-compose.yml)
+- [lacp.no-mongo.prod.d-compose.yml](lacp.no-mongo.prod.d-compose.yml)
 
 This configures the ports at which the services will be exposed on the host machine.
-
-Note: This is not actual when running the admin area standalone. Refer to [Standalone Admin Area](LACP_STANDALONE.md) instead.
 
 Ports are getting configured in the "ports" key defined in the docker compose yaml file.
 Signature: `<exposed_port>:<internal_service_port>`.
 
 >__Note:__ Only _exposed_port_ may be changed, _internal_service_port_ should be left as it is already set!
 
-Default configuration:
+Default configuration (some services may be unavailable in some configurations (see Files)):
 * `9000:80` for designer
 * `3000:3000` for admin area
 
