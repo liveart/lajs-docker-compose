@@ -1,10 +1,10 @@
 ## Running Admin area with sample php services without designer and DB
 
-```bash
-docker-compose -f lacp.no-mongo.prod.d-compose.yml up
-```
+:page_facing_up: [lacp.no-mongo.prod.d-compose.yml](lacp.no-mongo.prod.d-compose.yml)
 
-Includes the ticked services:
+:heavy_check_mark: Linux - :heavy_check_mark: Windows - :heavy_check_mark: MacOS
+
+### Services
 
 :heavy_check_mark: Admin area
 
@@ -15,16 +15,18 @@ Includes the ticked services:
 :heavy_multiplication_x: MongoDB instance
 
 
-### Configurable options
+### Run
 
-#### :arrow_forward: Bind mount a volume for data persistence
-Option: `v`
+```bash
+docker-compose -f lacp.no-mongo.prod.d-compose.yml up
+```
 
-Default: `-v /c/Users/Public/docker-mounts/admin-area/files:/app/client/public/files`
+_Note: The command might require running with sudo depending on the running system and user._
 
-Maps the host directory to the one inside the containers. 
 
-It is required for the production use.
+#### :arrow_forward: Setting up bind volumes
+
+_Bind mounts allow a directory to be mounted into a container and must be configured for the production use._
 
 Value syntax: `<host_directory>:<container_directory>`
 
@@ -32,17 +34,21 @@ Change `<host_directory>` to the one on the host. `<container_directory>` should
 
 :heavy_exclamation_mark: `<host_directory>` must exist!
 
-#### :arrow_forward: Expose to a port on the host
-Option: `p`
 
-Default: `-p 3000:3000`
+Default configurations:
 
-Value syntax: `<port_on_host>:<port_in_container>`
+##### Windows
+* `/var/docker-mounts/admin-area/files` for admin area
+* `/c/Users/Public/docker-mounts/php-sample-services/files` for sample PHP services
 
-Change `<port_on_host>` to the one on the host. `<port_in_container>` should not be changed!
+
+##### Linux
+* `/var/docker-mounts/admin-area/files` for admin area
+* `/var/docker-mounts/php-sample-services/files` for sample PHP services
+
 
 #### :arrow_forward: Other configuration
-Please see available configuration options for [liveartjs-lacp.prod.env](/Docker/liveartjs-lacp.prod.env) in [CONFIGURATION](CONFIGURATION.md).
+Please see other available configuration options in [CONFIGURATION](CONFIGURATION.md).
 
 :heavy_exclamation_mark: Some options may be critical for the production use (such as [Public address](https://github.com/liveart/lajs-docker-compose/blob/master/CONFIGURATION.md#small_blue_diamond-public-address)), so please consider checking the [CONFIGURATION](CONFIGURATION.md) readme.
 
