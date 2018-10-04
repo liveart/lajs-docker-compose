@@ -1,19 +1,29 @@
-## Configuration for Production Usage
+## Full-stack configuration for Production Use
 
-### Prerequisites:
-* Linux Platform only
+:page_facing_up: [liveartjs-lacp.prod.d-compose.yml	](liveartjs-lacp.prod.d-compose.yml	)
+
+
+:heavy_check_mark: Linux - :heavy_multiplication_x: Windows - :heavy_multiplication_x: MacOS
+
+
+### Services
+:heavy_check_mark: Admin area
+
+:heavy_check_mark: PHP sample services
+
+:heavy_check_mark: Designer
+
+:heavy_check_mark: MongoDB instance
+
 
 ### Run
 
-Run-command:
 ```sh
 docker-compose -f liveartjs-lacp.prod.d-compose.yml up
 ```
+
 _Note: The command might require running with sudo depending on the running system and user._
 
-### Required Configuration
-
-This config might _require additional configuration_ that is described under _Production configuration_ in this Readme (see below).
 
 ##### Setting up bind volumes
 
@@ -21,8 +31,9 @@ _Bind mounts allow a directory to be mounted into a container and must be config
 
 Default configuration:
 * `/var/docker-mounts/designer` for designer
-* `/var/docker-mounts/admin_area` for admin area
-* `/var/docker-mounts/liveartjs-db` for the database
+* `/var/docker-mounts/admin-area/files` for admin area
+* `/var/docker-mounts/liveartjs-db` for MongoDB
+* `/var/docker-mounts/php-sample-services/files` for sample PHP services
 
 These values should be updating respectively in `liveartjs-lacp.prod.d-compose.yml` to the ones that are available on the host machine.
 
